@@ -4,11 +4,14 @@ services:
 
   airbnbcollector:
     build: .
+    container_name: airbnbcollector
     depends_on:
       - postgresql
     volumes:       
       - ./docker/configs/:/collector/configs/
     command: tail -f /dev/null
+    environment:
+      USER: docker
 
   postgresql:
     image: mdillon/postgis:10-alpine
