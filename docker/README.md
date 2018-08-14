@@ -48,7 +48,7 @@ Step 1 and 2 are the same
    ```console
    docker exec -it airbnbcollector /bin/sh
    ```
-   Here you can access Toms Lee scripts : [main documentation](../README.md)
+   Here you can access Toms Lee scripts, with "python3" command : [main documentation](../README.md)
    
    Note : /bin/bash is /bin/sh in Alpine linux
    
