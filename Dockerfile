@@ -1,9 +1,13 @@
-FROM show0k/alpine-miniconda
+FROM amancevice/pandas:0.23.0-python3-alpine
 
-RUN pip install --upgrade pip
+WORKDIR /collector
+COPY ./docker/requirements.txt .
 
-COPY ./docker/requirements.txt collector/
-RUN pip install -r collector/requirements.txt
+RUN pip3 install --upgrade pip && \
+    apk add --no-cache py3-psycopg2 py3-lxml && \
+    apk add --no-cache --virtual .build-deps gcc g++ gfortran python3-dev && \
+    pip3 install -r requirements.txt && \
+    apk del .build-deps
 
-COPY ./*.py /home/jovyan/work/
-COPY ./docker/configs/docker.config /home/jovyan/work/
+COPY ./*.py ./
+COPY ./docker/configs/docker.config .
