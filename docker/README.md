@@ -1,4 +1,4 @@
-# Run script(s) with Docker
+# Run script(s) with Docker (master)
 
 1. Install Docker from [here](https://docs.docker.com/install/)
 2. Install Docker Compose from [here](https://docs.docker.com/compose/install/)
@@ -25,9 +25,9 @@
    For the scripts you can run, please check [main documentation](../README.md)
    
    
-# Container Set running on Alpine
+# Container Set running on Alpine (dev-alpine)
 
-The Collector container is built locally for ease of development while the db from Docker Repository
+The Collector container is built locally for ease of development while the db is from Docker Repository
 
 Step 1 and 2 are the same
 
@@ -46,18 +46,14 @@ Step 1 and 2 are the same
    
 5. To get a shell on the collector container:
    ```console
-   docker exec -it airbnbdatacollection_airbnbcollector_1 /bin/sh
+   docker exec -it airbnbcollector /bin/sh
    ```
+   Here you can access Toms Lee scripts : [main documentation](../README.md)
+   
    Note : /bin/bash is /bin/sh in Alpine linux
    
    To get a shell on the db container:
 
    ```shell
    docker exec -it airbnbcollector-db /bin/sh
-   ```
-   
-6. Specify the config file to use when you run the tool with the -c flag
-
-   ```shell
-   python airbnb.py -dbp -c docker.config
    ```
